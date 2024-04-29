@@ -11,11 +11,9 @@ use Illuminate\Support\ServiceProvider;
 class CrudServiceProvider extends ServiceProvider
 {
     /**
-     * Bootstrap services.
-     *
-     * @return void
+     * Bootstrap services
      */
-    public function boot()
+    public function boot(): void
     {
         if ($this->app->runningInConsole()) {
             $this->commands([
@@ -24,17 +22,18 @@ class CrudServiceProvider extends ServiceProvider
         }
 
         $this->publishes([
-            __DIR__ . '/config/crud.php' => config_path('crud.php'),
+            __DIR__ . '/../config/crud.php' => config_path('crud.php'),
         ], 'crud');
     }
 
     /**
      * Register services.
-     *
      * @return void
      */
-    public function register()
+    public function register(): void
     {
-        //
+        $this->mergeConfigFrom(
+            __DIR__.'/../config/crud.php', 'crud'
+        );
     }
 }
