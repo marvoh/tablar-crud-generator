@@ -17,8 +17,8 @@
         "laravel package"
     ],
     "require": {
-        "laravel/framework": "^9.0|^10.0",
-        "laravelcollective/html": "^6.0"
+        "laravel/framework": "^11.0",
+        "spatie/laravel-html": "^3.9"
     },
     "autoload": {
         "psr-4": {

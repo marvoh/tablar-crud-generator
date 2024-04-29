@@ -1,8 +1,8 @@
 <div class="form-group mb-3">
-    <label class="form-label">   {{ Form::label('{{column}}') }}</label>
+    {{ html()->label('{{column}}')->for('{{column}}_'.${{modelNameLowerCase}}->{{column}})->class('form-label') }}
     <div>
-        {{ Form::text('{{column}}', ${{modelNameLowerCase}}->{{column}}, ['class' => 'form-control' .
-        ($errors->has('{{column}}') ? ' is-invalid' : ''), 'placeholder' => '{{title}}']) }}
+        {{ html()->text('{{column}}', ${{modelNameLowerCase}}->{{column}})->class('form-control' .
+        ($errors->has('{{column}}') ? ' is-invalid' : ''))->placeholder('{{title}}') }}
         {!! $errors->first('{{column}}', '<div class="invalid-feedback">:message</div>') !!}
         <small class="form-hint">{{modelNameLowerCase}} <b>{{column}}</b> instruction.</small>
     </div>
